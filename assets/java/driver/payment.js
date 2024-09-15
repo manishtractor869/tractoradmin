@@ -83,7 +83,7 @@ const body = document.querySelector("body"),
 
    const fetchSheetNames = async () => {
     try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbyT62Dj4t5f_ALj0hDXncpTZTke7u8fhC_HBT0GzMs3JubNJTrMHF_FMN6DDTJ9-hbdxA/exec?action=getSheetNames'); // Replace with your deployment URL
+        const response = await fetch('https://script.google.com/macros/s/AKfycbz0q-5rpwf4LYaotHNBlBHLPLig0NlFnfbNB69kAFQ0-zLP_KkrTz1dXxamXR256EoCgg/exec?action=getSheetNames'); // Replace with your deployment URL
         const data = await response.json();
         const select = document.getElementById('sheetName');
         data.sheetNames.forEach(sheet => {
@@ -106,7 +106,7 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
     const sheetName = document.getElementById('sheetName').value;
 
     try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbyT62Dj4t5f_ALj0hDXncpTZTke7u8fhC_HBT0GzMs3JubNJTrMHF_FMN6DDTJ9-hbdxA/exec?action=submitData', { // Replace with your deployment URL
+        const response = await fetch('https://script.google.com/macros/s/AKfycbz0q-5rpwf4LYaotHNBlBHLPLig0NlFnfbNB69kAFQ0-zLP_KkrTz1dXxamXR256EoCgg/exec?action=submitData', { // Replace with your deployment URL
             method: 'POST',
             body: JSON.stringify({ totalRs, sheetName })
         });

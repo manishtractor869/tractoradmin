@@ -82,7 +82,7 @@ const body = document.querySelector("body"),
 
         // Function to fetch the list of sheet names and populate the dropdown
         function getSheetNames() {
-            const scriptUrl = 'https://script.google.com/macros/s/AKfycbwgDpAhZHFfmuR5l8Bu5X0Kop2mj6O2U3I9p7YLrAfJA0QcUZsY6ll8Kaj1BpJwOy-1dA/exec';
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbx8LxDhLiVtq0iKMQdHTTpB9y8EEtt0rMXwt1AVz_kQKs1cfd6lUriWM6TZ8uekjOVe5A/exec';
 
             fetch(`${scriptUrl}?action=getSheetNames`)
                 .then(response => response.json())
@@ -105,7 +105,7 @@ const body = document.querySelector("body"),
         function fetchData() {
             const sheetName = document.getElementById('sheetDropdown').value;
             if (sheetName) {
-                const scriptUrl = 'https://script.google.com/macros/s/AKfycbwgDpAhZHFfmuR5l8Bu5X0Kop2mj6O2U3I9p7YLrAfJA0QcUZsY6ll8Kaj1BpJwOy-1dA/exec';
+                const scriptUrl = 'https://script.google.com/macros/s/AKfycbx8LxDhLiVtq0iKMQdHTTpB9y8EEtt0rMXwt1AVz_kQKs1cfd6lUriWM6TZ8uekjOVe5A/exec';
                 const url = `${scriptUrl}?action=getSheetData&sheetName=${sheetName}`;
 
                 fetch(url)

@@ -138,7 +138,7 @@ const body = document.querySelector("body"),
    // For STore in Google sheet
 
     // Update this function with the URL of your Google Apps Script web app
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbw7sWAFmDcAhrDOQxyePhY2G85dZAVUWyPlE_Dojqqp-4bdC7C3NxVAiGDPiL_ns_bDOQ/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwnIcnykWuc-VJvhQ85463AXN7StnE9HakP1Rjh4gkeUuKwq1uoWnci8WTD4kwTTw8M0w/exec';
 
     // Function to populate dropdown with sheet names
     function populateDropdown() {
