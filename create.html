@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+<style>
+    /* header */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* background: var(--body-color); */
+        /* font-family:Arial, Helvetica, sans-serif;
+    color: var(--text-color); */
+
+    }
+
+    :root {
+          --body-color: #dde1e7;
+          --nav-color: #dde1e7;
+          --side-nav: #dde1e7;
+          --text-color: #595959;
+          --header: #2C3E50;
+          --search-bar: #595959;
+          --search-text: #595959;
+          --hover-txt-color: #1A73E8;
+          --box-shadow: -3px -3px 7px rgba(94, 101, 121, 0.288),
+                        2px 2px 5px rgba(94, 101, 121, 0.288);
+          --box-inset-shadow: inset 2px 2px 5px #babecc,
+              inset -5px -5px 10px #ffffff73;
+          --transparent-color: rgba(221, 225, 231, 0.8);
+
+          /* Site Max-Width */
+          --site-max-width: 1350px;
+      }
+
+    body.dark {
+        --body-color: #595959;
+        --nav-color: #595959;
+        --side-nav: #595959;
+        --text-color: #dde1e7;
+        --search-bar: #dde1e7;
+        --search-text: #dde1e7;
+        --box-shadow: 0px -2px 7px rgba(0, 0, 0, 1);
+        --box-inset-shadow: inset 2px 2px 5px #000000,
+            0px 1px 1px #333;
+        --transparent-color: rgba(89, 89, 89, 0.8);
+    }
+
+    /* arrow top  */
+
+    .arrowTop {
+        position: fixed;
+        right: 30px;
+        bottom: -100%;
+        border: none;
+        border-radius: 18%;
+        transition: 0.2s ease;
+    }
+
+    .arrowTop.show {
+        bottom: 100px;
+    }
+
+    .slideUp {
+        font-size: 40px;
+        color: var(--text-color);
+        border: none;
+        border-radius: 50%;
+        background-color: var(--body-color);
+        box-shadow: var(--box-shadow);
+
+    }
+
+    .slideUp:hover {
+        color: var(--hover-txt-color);
+        box-shadow: var(--box-inset-shadow);
+    }
+
+    .header-main a {
+        text-decoration: none;
+    }
+
+    .header-main {
+        list-style: none;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        background: var(--body-color);
+        border: none;
+        box-shadow: var(--box-shadow);
+        transition: 0.3s ease;
+    }
+
+    header.hide {
+        transform: translateY(-100%);
+    }
+
+    nav .nav-logo h1 {
+        color: var(--text-color);
+        font-weight: 600;
+        font-size: 30px;
+    }
+
+    nav {
+        display: flex;
+        padding: 10px 0;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        background-color: var(--body-color);
+        max-width: var(--site-max-width);
+    }
+
+    nav .nav_logo a {
+        display: flex;
+        gap: 15px;
+        align-items: right;
+    }
+
+    nav .header-main {
+        display: flex;
+
+        gap: 15px;
+        margin-bottom: -2px;
+    }
+
+    nav .header-main>li>a {
+        display: block;
+        padding: 10px 10px;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text-color);
+        transition: all 0.2s ease;
+    }
+
+    nav .header-main li a:hover {
+        color: var(--hover-txt-color);
+        border-radius: 5px;
+        background: var(--body-color);
+        box-shadow: var(--box-shadow);
+
+    }
+
+    nav .header-main li a:focus {
+        color: var(--hover-txt-color);
+        border-radius: 5px;
+        background: var(--body-color);
+        box-shadow: var(--box-inset-shadow);
+
+    }
+
+    /* minimixe maximize nav bar button */
+
+
+    .searchBox i {
+        display: none;
+    }
+
+    @media screen and (max-width: 1024px) {
+        nav {
+            padding: 15px 20px;
+        }
+
+        nav .header-main {
+            margin-bottom: 10px;
+            display: block;
+            position: absolute;
+            top: 76px;
+            left: -100%;
+            overflow-y: auto;
+            width: 35%;
+            height: 100vh;
+            text-align: center;
+            transition: all 0.10s ease;
+            border: none;
+            background: transparent;
+            background-color: var(--transparent-color);
+            box-shadow: var(--box-shadow);
+            z-index: 99;
+        }
+
+        nav.active .header-main {
+            left: 0;
+        }
+
+        .searchBox {
+            display: flex;
+            font-size: 25px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .searchBox i {
+            display: block;
+            padding-right: 25px;
+            position: absolute;
+            top: 19px;
+            font-size: 30px;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .searchBox i.close {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .searchBox.active i.close {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .searchBox.active i.open {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+
+        nav .header-main li {
+            display: block;
+            padding: 0 10px;
+            width: 100%;
+            margin: 15px 10px 0px -10px;
+        }
+
+        nav .header-main li a {
+            color: var(--text-color);
+            border: none;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        nav .header-main li a:focus {
+            color: var(--text-color);
+            border: none;
+            border-radius: 10px;
+            box-shadow: var(--box-inset-shadow);
+        }
+
+        .darkLight-searchBox .dark-light {
+            display: flex;
+            position: absolute;
+            right: 35px;
+        }
+
+    }
+
+    @media screen and (max-width: 500px) {
+        nav .nav_logo a img {
+            max-width: 45px;
+        }
+
+        nav .nav_logo h2 {
+            font-size: 20px;
+        }
+
+        .button {
+            padding: 10px 20px !important;
+            font-size: 15px !important;
+        }
+
+        nav .header-main {
+            display: block;
+            position: absolute;
+            top: 76px;
+            left: -100%;
+            overflow-y: auto;
+            width: 55%;
+            height: 100vh;
+            text-align: center;
+            transition: all 0.10s ease;
+            border: none;
+            background: transparent;
+            background-color: var(--transparent-color);
+            box-shadow: var(--box-shadow);
+            z-index: 99;
+        }
+
+        /* mode */
+        .darkLight-searchBox .dark-light {
+            display: flex;
+            position: absolute;
+            right: 35px;
+        }
+
+
+    }
+
+    /* dark and light mode */
+    .darkLight-searchBox {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 16px;
+    }
+
+    .darkLight-searchBox .dark-light,
+    .darkLight-searchBox .searchtoggle {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 5px;
+    }
+
+    .dark-light i,
+    .searchtoggle i {
+        position: absolute;
+        color: var(--text-color);
+        font-size: 22px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    /* sun */
+    .dark-light i.sun {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .dark-light.active i.sun {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .dark-light.active i.moon {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /*header close*/
+
+    section {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--text-color);
+        padding: 0 20px;
+        background-color: var(--body-color);
+    }
+
+    .new {
+        padding: 40px 30px;
+        border: none;
+        border-radius: 20px;
+        box-shadow: var(--box-shadow);
+    }
+    .newsheet h1{
+        font-size: 35px;
+        font-weight: 650;
+        text-align: center;
+    }
+
+    .new label {
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
+    .new input {
+        width: 100%;
+        font-size: 18px;
+        padding-left: 10px;
+        margin-top: 10px;
+        min-height: 35px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        background-color: var(--body-color);
+        box-shadow: var(--box-shadow);
+    }
+
+    .btn {
+        float: right;
+    }
+
+    .btn input {
+
+        width: 100%;
+
+        padding: 5px 15px;
+    }
+
+    .new input:focus {
+        color: var(--hover-txt-color);
+        box-shadow: var(--box-inset-shadow);
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <a style="text-decoration: none;" href="index.html">
+                    <h1>RKPY</h1>
+                </a>
+            </div>
+            <div class="searchBox">
+                <i class='bx bx-menu open'></i>
+                <i class='bx bx-x close'></i>
+            </div>
+            <ul class="header-main">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="start.html">Start</a></li>
+                <li><a href="calculate.html">Calculator</a></li>
+                <li><a href="payment.html">Payment</a></li>
+                <li><a href="create.html">नयाँ ग्राहक</a></li>
+                <li><a href="https://www.ramkrishna4234.com.np/">LogOut</a></li>
+            </ul>
+        </nav>
+        </nav>
+        <!-- light and dark mode -->
+        <div class="darkLight-searchBox">
+            <div class="dark-light">
+                <i class='bx bx-moon moon'></i>
+                <i class='bx bx-sun sun'></i>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="new">
+            <div class="newsheet">
+                <h1>नयाँ ग्राहक </h1>
+                <form id="sheetForm">
+                    <label for="sheetName">ग्राहकको नाम:</label><br>
+                    <input type="text" id="sheetName" name="sheetName" required placeholder="ग्राहकको नाम...."><br><br>
+                    <div class="btn">
+                        <input type="submit" value="Register">
+                    </div>
+
+                </form>
+                <div id="result" style="display: none;"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script>
+        const body = document.querySelector("body"),
+            header = document.querySelector("header"),
+            nav = document.querySelector("nav"),
+            modeToggle = document.querySelector(".dark-light"),
+            searchBox = document.querySelector(".searchBox"),
+            open = document.querySelector(".open"),
+            close = document.querySelector(".close");
+
+
+        // nav bar scroll up and down with windows
+
+        let prevScrollpos = window.pageYOffset;
+        window.addEventListener("scroll", () => {
+            let currentScrollpos = window.pageYOffset;
+            if (prevScrollpos < currentScrollpos) {
+                header.classList.add("hide");
+                arrowTop.classList.add("show");
+            } else {
+                header.classList.remove("hide");
+                arrowTop.classList.remove("show");
+            }
+            prevScrollpos = currentScrollpos;
+        })
+
+
+        // for always selector dark or light mode
+        let getMode = localStorage.getItem("mode");
+        if (getMode && getMode === "dark-mode") {
+            body.classList.add("dark");
+        }
+
+        //js code to toggle dark and light mode
+        modeToggle.addEventListener("click", () => {
+            modeToggle.classList.toggle("active");
+            body.classList.toggle("dark");
+
+            //    for always dark or light mode    
+
+            if (!body.classList.contains("dark")) {
+                localStorage.setItem("mode", "light-mode");
+            } else {
+                localStorage.setItem("mode", "dark-mode");
+            }
+
+        });
+
+        //toggle for nav bar
+        searchBox.addEventListener("click", () => {
+            searchBox.classList.toggle("active");
+            // nav.classList.add("active");
+        });
+
+
+        //for side bar
+
+        open.addEventListener("click", () => {
+            nav.classList.add("active");
+        })
+        body.addEventListener("click", e => {
+            let clickedElm = e.target;
+
+            if (!clickedElm.classList.contains("open") && !clickedElm.classList.contains("menu")) {
+                nav.classList.remove("active");
+                searchBox.classList.remove("active");
+            }
+        })
+
+        //header closed
+
+        
+
+        //end of header
+
+
+
+        // Function to handle form submission
+        document.getElementById('sheetForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var form = document.getElementById('sheetForm');
+            var sheetName = form.sheetName.value;
+
+            // Make an HTTP POST request to the Google Apps Script web app
+            fetch('https://script.google.com/macros/s/AKfycbzgq01QQ9RyMIU_hPPSuvIBMFzpbA0ucM7uC0WmPf4TWnqvJV09OnOmCKB-tZQVYr0D/exec', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'sheetName': sheetName
+                })
+            })
+                .then(response => response.text())
+                .then(result => {
+                    // Display the result in the div and show an alert
+                    document.getElementById('result').innerText = result;
+                    alert(result);
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('result').innerText = 'An error occurred.';
+                    alert('An error occurred.');
+                    window.location.reload();
+                });
+        });
+
+    </script>
+</body>
+
+</html>

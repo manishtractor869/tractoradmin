@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/driver/start.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-logo">
+        <a style="text-decoration: none;" href="index.html">
+          <h1>RKPY</h1>
+        </a>
+      </div>
+      <div class="searchBox">
+        <i class='bx bx-menu open'></i>
+        <i class='bx bx-x close'></i>
+      </div>
+      <ul class="header-main">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="start.html">Start</a></li>
+        <li><a href="calculate.html">Calculator</a></li>
+        <li><a href="payment.html">Payment</a></li>
+        <li><a href="create.html">नयाँ ग्राहक</a></li>
+        <li><a href="https://www.ramkrishna4234.com.np/">LogOut</a></li>
+      </ul>
+    </nav>
+    <!-- light and dark mode -->
+    <div class="darkLight-searchBox">
+      <div class="dark-light">
+        <i class='bx bx-moon moon'></i>
+        <i class='bx bx-sun sun'></i>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="driver">
+      <div class="record">
+        <h1>Stop Watch</h1>
+        <label for="sheetName">Name :</label>
+        <select id="sheetName" name="sheetName" required></select>
+
+        <!-- Type Dropdown -->
+        <select id="type" name="type" required>
+          <option value="Rotavator">Rotavator</option>
+          <option value="Kalti">Kalti</option>
+          <option value="Reaper">Reaper</option>
+          <option value="Bojha">Bojha</option>
+        </select><br><br>
+
+        <!-- Stopwatch Display -->
+        <div id="stopwatch">
+          <span id="time">00:00:00</span><br>
+          <button id="play" style="background-color: #c1d5c0;">Play</button>
+          <button id="pause" style="background-color: #c2cbe0;">Pause</button>
+          <button id="reset" style="background-color: #e0e0e0;">Reset</button>
+        </div>
+
+        <!-- Stopwatch Time Input -->
+        <label for="timeInput">Time :</label>
+        <input type="text" id="timeInput" name="timeInput" readonly disabled><br>
+
+        <!-- Rate Input and Calculate Button -->
+        <label for="rate">Rate &nbsp;:</label>
+        <input type="number" id="rate" name="rate" step="0.01" placeholder="Rs. per hour" required><br><br>
+        <button id="calculate">Calculate</button><br><br>
+
+        <!-- Loading Indicator -->
+        <div id="loading">Submitting...</div>
+        <br>
+        <!-- Registration Form -->
+        <form id="registerForm">
+          <label for="totalRupees">Total:</label>
+          <input type="text" id="totalRupees" name="totalRupees" required disabled><br><br>
+          <button type="submit" id="submitBtn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script src="./assets/java/driver/start.js"></script>
+</body>
+
+</html>
