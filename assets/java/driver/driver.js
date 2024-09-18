@@ -9,20 +9,6 @@ const body = document.querySelector("body"),
 
         // nav bar scroll up and down with windows
 
-        // let prevScrollpos = window.pageYOffset;
-        // window.addEventListener("scroll", () => {
-        //     let currentScrollpos = window.pageYOffset;
-        //     if (prevScrollpos < currentScrollpos) {
-        //         header.classList.add("hide");
-        //         arrowTop.classList.add("show");
-        //     } else {
-        //         header.classList.remove("hide");
-        //         arrowTop.classList.remove("show");
-        //     }
-        //     prevScrollpos = currentScrollpos;
-        // })
-
-
         // for always selector dark or light mode
         let getMode = localStorage.getItem("mode");
         if (getMode && getMode === "dark-mode") {
@@ -67,16 +53,7 @@ const body = document.querySelector("body"),
 
         //header closed
 
-        //fullname display
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     var fullName = localStorage.getItem('fullName');
-        //     if (fullName) {
-        //         document.getElementById('fullName').textContent = fullName;
-        //     } else {
-        //         alert('No user information found.');
-        //         window.location.href = "index.html";
-        //     }
-        // });
+   
 
         //View Data according to provideed sheet name
 

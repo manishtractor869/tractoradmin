@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/driver/correction.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <a style="text-decoration: none;" href="index.html">
+                    <img src="./assets/image/logo.png" width="100" />
+                </a>
+            </div>
+            <div class="searchBox">
+                <i class='bx bx-menu open'></i>
+                <i class='bx bx-x close'></i>
+            </div>
+            <ul class="header-main">
+                <li><a href="index.html">मुख्य</a></li>
+                <li><a href="start.html">सुरु</a></li>
+                <li><a href="calculate.html">क्याल्कुलेटर</a></li>
+                <li><a href="payment.html">भुक्तानी</a></li>
+                <li><a href="create.html">नयाँ ग्राहक</a></li>
+                <li><a href="correction.html">सुधार</a></li>
+                <li><a href="https://www.ramkrishna4234.com.np/">Logout</a></li>
+            </ul>
+        </nav>
+        <!-- light and dark mode -->
+        <div class="darkLight-searchBox">
+            <div class="dark-light">
+                <i class='bx bx-moon moon'></i>
+                <i class='bx bx-sun sun'></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="container">
+            <div class="master">
+                <h1>सुधार</h1>
+                <label>नाम :</label>
+                <select id="sheetDropdown" onchange="loadSheetData()">
+                    <option value="">ग्राहक को नाम...</option>
+
+                </select>
+
+                <!-- Table for Columns G to I (View Only) -->
+                <br><br>
+                <table id="viewOnlyDataTable" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>जम्मा रुपैया</th>
+                            <th>जम्मा दिएको</th>
+                            <th>बाकी रुपैया</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be populated dynamically -->
+                    </tbody>
+                </table>
+
+                <!-- Table for Columns J to K -->
+                <br>
+                <div class="moving">
+                    <table id="extraDataTable" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>रुपैया दिएको</th>
+                                <th>दिएको मिती</th>
+                                <th>Update_Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated dynamically -->
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+
+                <!-- Table for Columns A to E -->
+                <br>
+                <div class="moving">
+
+                    <table id="sheetDataTable" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>मिती</th>
+                                <th>प्रकार</th>
+                                <th>लागेको_समय</th>
+                                <th>दर</th>
+                                <th>रुपैया</th>
+                                <th>Edit_Delete_Btn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <script src="./assets/java/driver/correction.js"></script>
+    <script>
+        const webAppUrl = 'https://script.google.com/macros/s/AKfycbxwm5CaeNunZyvqbnyErdPQnnlRxRpsTDwduEymNVkyUgJz4LaUAWZm-jkJlbS7jpaEOQ/exec'; // <-- Replace with your Google Apps Script Web App URL
+
+        // Load Google Sheet names into the dropdown
+        async function loadSheetNames() {
+            try {
+                const response = await fetch(`${webAppUrl}?action=getSheetNames`);
+                const sheetNames = await response.json();
+                const dropdown = document.getElementById('sheetDropdown');
+                sheetNames.forEach(sheet => {
+                    const option = document.createElement('option');
+                    option.value = sheet;
+                    option.textContent = sheet;
+                    dropdown.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error fetching sheet names:', error);
+            }
+        }
+
+        // Load data from the selected sheet
+        async function loadSheetData() {
+            const sheetName = document.getElementById('sheetDropdown').value;
+            try {
+                // Fetch data for Columns A to E
+                const responseAE = await fetch(`${webAppUrl}?action=getSheetData&sheetName=${sheetName}`);
+                const sheetDataAE = await responseAE.json();
+                populateTable('sheetDataTable', sheetDataAE, 5, sheetName, 'A-E');
+
+                // Fetch data for Columns J to K
+                const responseJK = await fetch(`${webAppUrl}?action=getExtraData&sheetName=${sheetName}`);
+                const sheetDataJK = await responseJK.json();
+                populateTable('extraDataTable', sheetDataJK, 2, sheetName, 'J-K');
+
+                // Fetch data for Columns G to I (view-only)
+                const responseGI = await fetch(`${webAppUrl}?action=getViewOnlyData&sheetName=${sheetName}`);
+                const sheetDataGI = await responseGI.json();
+                populateViewOnlyTable('viewOnlyDataTable', sheetDataGI, 3);
+            } catch (error) {
+                console.error('Error loading sheet data:', error);
+            }
+        }
+
+        // Populate table with the sheet data and attach actions for edit/delete
+        // Populate table with the sheet data and attach actions for edit/delete
+        function populateTable(tableId, data, columnCount, sheetName, type) {
+            const tbody = document.getElementById(tableId).querySelector('tbody');
+            tbody.innerHTML = ''; // Clear previous data
+
+            data.forEach((row, index) => {
+                if (row.some(cell => cell !== '')) { // Check if row is not empty
+                    const tr = document.createElement('tr');
+
+                    // Create editable fields for the number of columns
+                    row.slice(0, columnCount).forEach((cell, i) => {
+                        const td = document.createElement('td');
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.value = cell;
+                        input.id = `${type}-cell-${index}-${i}`;
+                        td.appendChild(input);
+                        tr.appendChild(td);
+                    });
+
+                    // Add edit and delete buttons
+                    const actionsTd = document.createElement('td');
+                    const saveButton = document.createElement('button');
+                    saveButton.textContent = 'Save';
+                    saveButton.onclick = () => saveRow(sheetName, index, columnCount, type);
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.onclick = () => deleteRow(sheetName, index, type);
+                    actionsTd.appendChild(saveButton);
+                    actionsTd.appendChild(deleteButton);
+                    tr.appendChild(actionsTd);
+
+                    tbody.appendChild(tr);
+                }
+            });
+        }
+
+        // Populate view-only table with Columns G to I
+        function populateViewOnlyTable(tableId, data, columnCount) {
+            const tbody = document.getElementById(tableId).querySelector('tbody');
+            tbody.innerHTML = ''; // Clear previous data
+
+            data.forEach((row) => {
+                if (row.some(cell => cell !== '')) { // Check if row is not empty
+                    const tr = document.createElement('tr');
+                    row.slice(0, columnCount).forEach((cell) => {
+                        const td = document.createElement('td');
+                        td.textContent = cell;
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                }
+            });
+        }
+
+
+        // Save row changes to the Google Sheet
+        async function saveRow(sheetName, rowIndex, columnCount, type) {
+            const updatedRow = [];
+            for (let i = 0; i < columnCount; i++) {
+                const cellValue = document.getElementById(`${type}-cell-${rowIndex}-${i}`).value;
+                updatedRow.push(cellValue);
+            }
+
+            try {
+                const response = await fetch(`${webAppUrl}`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: 'updateRow',
+                        sheetName: sheetName,
+                        rowIndex: rowIndex + 2, // Adjust for header row
+                        rowData: updatedRow,
+                        type: type
+                    })
+                });
+                const result = await response.text();
+                alert(result);
+                loadSheetData();
+            } catch (error) {
+                console.error('Error saving row:', error);
+            }
+        }
+
+        // Delete row from the Google Sheet
+        // Delete row from the Google Sheet
+        async function deleteRow(sheetName, rowIndex, type) {
+            try {
+                const columns = type === 'A-E' ? 'A-E' : 'J-K'; // Set columns based on the table
+                const response = await fetch(`${webAppUrl}`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: 'deleteRow',
+                        sheetName: sheetName,
+                        rowIndex: rowIndex + 2, // Adjust for header row
+                        columns: columns,
+                        type: type
+                    })
+                });
+                const result = await response.text();
+                alert(result);
+                loadSheetData(); // Refresh data after deletion
+            } catch (error) {
+                console.error('Error deleting row:', error);
+            }
+        }
+
+        // Load sheet names when the page loads
+        window.onload = loadSheetNames;
+    </script>
+</body>
+
+</html>
