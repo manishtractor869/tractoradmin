@@ -28,13 +28,13 @@
         <i class='bx bx-x close'></i>
       </div>
       <ul class="header-main">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="start.html">Start</a></li>
-        <li><a href="calculate.html">Calculator</a></li>
-        <li><a href="payment.html">Payment</a></li>
+        <li><a href="index.html">मुख्य</a></li>
+        <li><a href="start.html">सुरु</a></li>
+        <li><a href="calculate.html">क्याल्कुलेटर</a></li>
+        <li><a href="payment.html">भुक्तानी</a></li>
         <li><a href="create.html">नयाँ ग्राहक</a></li>
-        <li><a href="https://www.ramkrishna4234.com.np/">LogOut</a></li>
-      </ul>
+        <li><a href="https://www.ramkrishna4234.com.np/">Logout</a></li>
+    </ul>
     </nav>
     <!-- light and dark mode -->
     <div class="darkLight-searchBox">
@@ -49,42 +49,42 @@
     <div class="driver">
       <div class="record">
         <h1>Stop Watch</h1>
-        <label for="sheetName">Name :</label>
+        <label for="sheetName">नाम :</label>
         <select id="sheetName" name="sheetName" required></select>
 
         <!-- Type Dropdown -->
         <select id="type" name="type" required>
-          <option value="Rotavator">Rotavator</option>
-          <option value="Kalti">Kalti</option>
-          <option value="Reaper">Reaper</option>
-          <option value="Bojha">Bojha</option>
+          <option value="Rotavator">रोटाभेटर</option>
+          <option value="Kalti">कल्टी</option>
+          <option value="Reaper">काट्ने</option>
+          <option value="Bojha">टिप</option>
         </select><br><br>
 
         <!-- Stopwatch Display -->
         <div id="stopwatch">
-          <span id="time">00:00:00</span><br>
+          <span id="time" style="color: #2C3E50;">00:00:00</span><br>
           <button id="play" style="background-color: #c1d5c0;">Play</button>
           <button id="pause" style="background-color: #c2cbe0;">Pause</button>
           <button id="reset" style="background-color: #e0e0e0;">Reset</button>
         </div>
 
         <!-- Stopwatch Time Input -->
-        <label for="timeInput">Time :</label>
+        <label for="timeInput">समय :</label>
         <input type="text" id="timeInput" name="timeInput" readonly disabled><br>
 
         <!-- Rate Input and Calculate Button -->
-        <label for="rate">Rate &nbsp;:</label>
+        <label for="rate">दर &nbsp;&nbsp;&nbsp;&nbsp;:</label>
         <input type="number" id="rate" name="rate" step="0.01" placeholder="Rs. per hour" required><br><br>
-        <button id="calculate">Calculate</button><br><br>
+        <button id="calculate">गणना गर्नुहोस्</button><br><br>
 
         <!-- Loading Indicator -->
-        <div id="loading">Submitting...</div>
+        <div id="loading">डेटा पेश गर्दै कृपया प्रतीक्षा गर्नुहोस्</div>
         <br>
         <!-- Registration Form -->
         <form id="registerForm">
-          <label for="totalRupees">Total:</label>
+          <label for="totalRupees">जम्मा :</label>
           <input type="text" id="totalRupees" name="totalRupees" required disabled><br><br>
-          <button type="submit" id="submitBtn">Submit</button>
+          <button type="submit" id="submitBtn">पेश गर्नुहोस्</button>
         </form>
       </div>
     </div>

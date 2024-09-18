@@ -110,7 +110,7 @@ const body = document.querySelector("body"),
        totalHours += Math.floor(totalMinutes / 60);
        totalMinutes = totalMinutes % 60;
 
-       document.getElementById('totalTime').innerHTML = 'Total Time: ' + totalHours + ' Hours, ' + totalMinutes + ' Minutes';
+       document.getElementById('totalTime').innerHTML = 'कुल समय : ' + totalHours + ' घण्टा, ' + totalMinutes + ' मिनेट';
 
        document.getElementById('hours').value = '';
        document.getElementById('minutes').value = '';
@@ -127,7 +127,7 @@ const body = document.querySelector("body"),
        var totalTimeInHours = totalHours + (totalMinutes / 60);
        var totalCost = totalTimeInHours * rate;
 
-       document.getElementById('totalCost').innerHTML = 'Total Rs: ' + totalCost.toFixed(2);
+       document.getElementById('totalCost').innerHTML = 'कुल रुपैया : ' + totalCost.toFixed(2);
    }
 
    function clearPage() {
@@ -147,7 +147,7 @@ const body = document.querySelector("body"),
             .then(data => {
                 const dropdown = document.getElementById('sheetDropdown');
                 dropdown.innerHTML = ''; // Clear existing options
-                dropdown.appendChild(new Option('Select a sheet', '')); // Add a default option
+                dropdown.appendChild(new Option('ग्राहक को नाम...', '')); // Add a default option
                 data.sheets.forEach(sheet => {
                     const option = document.createElement('option');
                     option.value = sheet;

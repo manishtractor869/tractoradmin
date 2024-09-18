@@ -28,12 +28,12 @@
                 <i class='bx bx-x close'></i>
             </div>
             <ul class="header-main">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="start.html">Start</a></li>
-                <li><a href="calculate.html">Calculator</a></li>
-                <li><a href="payment.html">Payment</a></li>
+                <li><a href="index.html">मुख्य</a></li>
+                <li><a href="start.html">सुरु</a></li>
+                <li><a href="calculate.html">क्याल्कुलेटर</a></li>
+                <li><a href="payment.html">भुक्तानी</a></li>
                 <li><a href="create.html">नयाँ ग्राहक</a></li>
-                <li><a href="https://www.ramkrishna4234.com.np/">LogOut</a></li>
+                <li><a href="https://www.ramkrishna4234.com.np/">Logout</a></li>
             </ul>
         </nav>
         <!-- light and dark mode -->
@@ -48,38 +48,40 @@
     <section>
         <div class="calculation">
             <div class="calculate">
-                <h1>Calculator</h1>
+                <h1>क्याल्कुलेटर</h1>
 
                 <div class="input-container">
                     <input type="number" id="hours" placeholder="hh">:
                     <input type="number" id="minutes" placeholder="mm">
-                    <button onclick="recordTime()">Record</button>
+                    <button onclick="recordTime()">रेकर्ड</button>
                 </div>
                 <table id="timeTable">
                     <tr>
-                        <th>Hours</th>
-                        <th>Minutes</th>
+                        <th>घण्टा</th>
+                        <th>मिनेट</th>
                     </tr>
                 </table>
                 <div id="totalTime" class="calculation_time">
-                    Total Time: 0 Hours, 0 Minutes
+                    कुल समय : 0 घण्टा, 0 मिनेट
                 </div>
                 <div class="rate-container">
-                    <label>Rate &nbsp;&nbsp;&nbsp;:</label>
+                    <label>दर &nbsp;&nbsp;&nbsp;:</label>
                     <input type="number" id="rate" placeholder="Rate/hours">
 
                 </div>
                 <div id="totalCost" style="font-size: 20px;">
-                    Total Rs: 0.00
+                    कुल रुपैया: 0.00
                 </div>
                 <div class="calc">
-                    <button onclick="clearPage()" style="background-color: #db8534;">Clear</button>
-                    <button onclick="calculateCost()">Calculate</button>
+                    <button onclick="clearPage()" style="background-color: #db8534;">
+                        मेट्नुहोस्</button>
+                    <button onclick="calculateCost()">
+                        गणना गर्नुहोस्</button>
                 </div>
 
 
                 <div class="dropdown-container">
-                    <label for="sheetDropdown">Name &nbsp;:</label>
+                    <label for="sheetDropdown">नाम &nbsp;&nbsp;&nbsp;&nbsp;:</label>
                     <select id="sheetDropdown">
 
                     </select>
@@ -89,13 +91,13 @@
 
                 <!-- Date and Type dropdown container initially hidden -->
                 <div id="additionalInputs" style="display: none;">
-                <label for="dateInput">Date &nbsp;&nbsp;&nbsp;:</label>
+                <label for="dateInput">मिति &nbsp;&nbsp;&nbsp;:</label>
                 <input type="date" id="dateInput" required><br>
 
 
-                <label for="typeDropdown">Type &nbsp;&nbsp;&nbsp;:</label>
+                <label for="typeDropdown">प्रकार &nbsp;&nbsp;:</label>
                 <select id="typeDropdown" required>
-                    <option value="">Select....</option>
+                    <option value="">प्रकार छान्नुहोस्....</option>
                     <option value="rotavator">Rotavator</option>
                     <option value="reaper">Reaper</option>
                     <option value="kalti">Kalti</option>
