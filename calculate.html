@@ -89,7 +89,7 @@
 
                 </div>
 
-
+                <form>
                 <!-- Date and Type dropdown container initially hidden -->
                 <div id="additionalInputs" style="display: none;">
                 <label for="dateInput">मिति &nbsp;&nbsp;&nbsp;:</label>
@@ -97,16 +97,12 @@
 
 
                 <label for="typeDropdown">प्रकार &nbsp;&nbsp;:</label>
-                <select id="typeDropdown" required>
-                    <option value="">प्रकार छान्नुहोस्....</option>
-                    <option value="rotavator">Rotavator</option>
-                    <option value="reaper">Reaper</option>
-                    <option value="kalti">Kalti</option>
-                </select><br><br>
+                <input type="text" id="typeDropdown" required>
+                <br><br>
                 <div class="btn-submit">
                     <button onclick="submitData()">Submit</button>
                 </div>
-
+            </form>
             </div>
 
             <div class="clear-container">
