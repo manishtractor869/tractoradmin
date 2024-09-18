@@ -179,9 +179,9 @@ const body = document.querySelector("body"),
         const selectedSheet = document.getElementById('sheetDropdown').value;
         const date = document.getElementById('dateInput').value;
         const type = document.getElementById('typeDropdown').value;
-        const totalTime = document.getElementById('totalTime').textContent.replace('Total Time: ', '');
+        const totalTime = document.getElementById('totalTime').textContent.replace('कुल समय : ', '');
         const rate = document.getElementById('rate').value;
-        const totalCost = document.getElementById('totalCost').textContent.replace('Total Rs: ', '').replace('₹', '');
+        const totalCost = document.getElementById('totalCost').textContent.replace('कुल रुपैया : ', '').replace('₹', '');
 
         fetch(scriptURL, {
             method: 'POST',
