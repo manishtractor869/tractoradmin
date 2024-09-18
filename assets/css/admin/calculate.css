@@ -363,144 +363,157 @@ nav .header-main li a:focus {
 
 /*header close*/
 
-
 section {
   width: 100%;
   min-height: 100vh;
   display: flex;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  background-color: var(--body-color);
+  background-color: rgba(0,0,255, 0.1);
 }
 
-.driver {
-  margin-top: 40px;
-  width: 25%;
-  color: var(--text-color);
-  padding: 15px 5px;
+.calculation {
+  margin: 110px 0;
+  min-width: 320px;
+  padding: 25px;
   border: none;
-  border-radius: 15px;
-  box-shadow: var(--box-shadow);
-}
-
-@media(max-width:900px) {
-  .driver {
-    width: 90%;
-    padding: 15px 5px;
-  }
-}
-
-.driver h1 {
-  font-size: 30px;
-  font-weight: 700;
-  color: var(--header);
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-.driver label {
-  font-size: 20px;
-  padding: 5px 15px;
-  color: var(--header);
-  font-weight: 550;
-}
-
-.driver select {
-  margin-left: 5px;
-  width: 30%;
-  min-height: 30px;
-  outline: none;
-  border: none;
-  color: var(--hover-txt-color);
-  font-weight: 500;
-  background: var(--body-color);
-  padding-left: 10px;
-  font-size: 18px;
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
-}
-
-.driver input {
-  width: 68%;
-  min-height: 29px;
-  outline: none;
-  border: none;
-  color: var(--text-color);
-  font-weight: 500;
-  background: var(--body-color);
-  padding-left: 10px;
-  font-size: 18px;
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
-}
-
-.driver input:focus {
-  color: var(--hover-txt-color);
-  box-shadow: var(--box-inset-shadow);
-}
-
-.record>button {
-  margin: 0 10px 10px 0;
-  border: none;
-  color: var(--header);
-  padding: 5px 12px;
-  font-size: 20px;
-  border-radius: 10px;
-  float: right;
+  border-radius: 20px;
   background-color: var(--body-color);
   box-shadow: var(--box-shadow);
 }
 
-.record>button:focus {
-  color: var(--hover-txt-color);
-  box-shadow: var(--box-inset-shadow);
-}
-
-form>button {
-  margin: 5px 10px 5px 0;
-  border: 1px solid var(--text-color);
-  color: var(--text-color);
-  padding: 5px 12px;
-  font-size: 20px;
-  border-radius: 10px;
-  float: inline-end;
-  background-color: #b6d3aa;
-
-}
-
-form>button:focus {
-  color: var(--hover-txt-color);
-  box-shadow: var(--box-inset-shadow);
-}
-
-#stopwatch {
+.calculation h1 {
+  font-weight: 650;
   text-align: center;
-  font-family: Arial, sans-serif;
-  font-size: 45px;
+  margin: 10px 0 20px 0;
+}
+
+.calculation_time {
+  font-size: 20px;
   font-weight: 600;
-  margin: 5px 0;
+  text-align: center;
+  margin: 10px 0 20px 0;
+
 }
 
-#stopwatch>button {
-  margin: 15px 8px 5px 0;
+.input-container {
   font-size: 20px;
-  padding: 5px 12px;
-  border: 1px solid var(--header);
-  color: var(--header);
-  cursor: pointer;
-  border-radius: 10px;
-
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-#stopwatch>button:focus {
+#timeTable {
+  font-size: 15px;
+}
+
+.rate-container {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.calculate label {
+  font-size: 20px;
+}
+
+.input-container input {
+  color: var(--text-color);
+  margin: 0 3px;
+  padding: 5px;
+  font-size: 20px;
+  min-height: 35px;
+  width: 80px;
+  text-align: center;
   border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--body-color);
+  box-shadow: var(--box-shadow);
+}
+
+.input-container input:focus {
   color: var(--hover-txt-color);
   box-shadow: var(--box-inset-shadow);
-
 }
 
-#loading {
-  display: none;
-  font-size: 16px;
+
+.calc {
+  margin-top: 15px;
+  padding: 0;
+  width: 100%;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.calc button {
+  box-shadow: var(--box-shadow);
+}
+
+button {
+  padding: 0 10px 0 10px;
+  min-height: 30px;
+  font-size: 17px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:focus {
+  background-color: var(--body-color);
   color: var(--hover-txt-color);
+  box-shadow: var(--box-inset-shadow);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+table,
+th,
+td {
+  border: 1px solid var(--text-color);
+}
+
+th,
+td {
+  min-height: 20px;
+  text-align: center;
+}
+
+th {
+  background-color: var(--body-color);
+}
+
+select,
+input {
+  width: 73%;
+  margin-bottom: 10px;
+  border: none;
+  font-size: 15px;
+  padding: 5px;
+  outline: none;
+  color: #3498db;
+  background-color: var(--body-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+}
+
+select:hover {
+  box-shadow: var(--box-inset-shadow);
+}
+
+input:hover {
+  box-shadow: var(--box-inset-shadow);
+}
+
+.btn-submit {
+  width: 100%;
+  right: 0;
+  text-align: right;
 }

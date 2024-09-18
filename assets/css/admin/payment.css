@@ -363,157 +363,94 @@ nav .header-main li a:focus {
 
 /*header close*/
 
+
 section {
   width: 100%;
   min-height: 100vh;
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
+  background-color: rgba(0,0,255, 0.1);
   align-items: center;
-  background-color: var(--body-color);
 }
 
-.calculation {
-  margin: 110px 0;
-  min-width: 320px;
-  padding: 25px;
+.bill {
+  width: auto;
+  padding: 50px 20px 20px 20px;
+  color: var(--text-color);
   border: none;
   border-radius: 20px;
-  background-color: var(--body-color);
   box-shadow: var(--box-shadow);
 }
 
-.calculation h1 {
-  font-weight: 650;
-  text-align: center;
-  margin: 10px 0 20px 0;
+@media screen and (max-width: 1485px) {
+  .biller .bill {
+    width: 90%;
+  }
+
 }
 
-.calculation_time {
-  font-size: 20px;
+.bill h1 {
+  color: var(--header);
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 25px;
   font-weight: 600;
-  text-align: center;
-  margin: 10px 0 20px 0;
-
 }
 
-.input-container {
-  font-size: 20px;
-  margin-bottom: 20px;
-  text-align: center;
+.billpayment label {
+  font-size: 25px;
 }
 
-#timeTable {
-  font-size: 15px;
-}
-
-.rate-container {
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-.calculate label {
-  font-size: 20px;
-}
-
-.input-container input {
-  color: var(--text-color);
-  margin: 0 3px;
-  padding: 5px;
-  font-size: 20px;
+.billpayment select {
+  width: 75%;
   min-height: 35px;
-  width: 80px;
-  text-align: center;
   border: none;
-  border-radius: 5px;
   outline: none;
-  background-color: var(--body-color);
-  box-shadow: var(--box-shadow);
-}
-
-.input-container input:focus {
-  color: var(--hover-txt-color);
-  box-shadow: var(--box-inset-shadow);
-}
-
-
-.calc {
-  margin-top: 15px;
-  padding: 0;
-  width: 100%;
+  border-radius: 8px;
+  color: var(--color);
+  background-color: var(--background);
   font-size: 20px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.calc button {
+  padding-left: 10px;
   box-shadow: var(--box-shadow);
 }
 
-button {
-  padding: 0 10px 0 10px;
-  min-height: 30px;
-  font-size: 17px;
-  background-color: #4CAF50;
-  color: white;
+.billpayment input {
+  width: 50%;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:focus {
-  background-color: var(--body-color);
-  color: var(--hover-txt-color);
-  box-shadow: var(--box-inset-shadow);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
-}
-
-table,
-th,
-td {
-  border: 1px solid var(--text-color);
-}
-
-th,
-td {
-  min-height: 20px;
-  text-align: center;
-}
-
-th {
-  background-color: var(--body-color);
-}
-
-select,
-input {
-  width: 73%;
-  margin-bottom: 10px;
-  border: none;
-  font-size: 15px;
-  padding: 5px;
   outline: none;
-  color: #3498db;
-  background-color: var(--body-color);
+  border-radius: 8px;
+  color: var(--color);
+  background-color: var(--background);
+  font-size: 25px;
+  padding-left: 10px;
   box-shadow: var(--box-shadow);
-  border-radius: 5px;
-}
-
-select:hover {
-  box-shadow: var(--box-inset-shadow);
 }
 
 input:hover {
   box-shadow: var(--box-inset-shadow);
+  color: #1A73E8;
 }
 
-.btn-submit {
-  width: 100%;
-  right: 0;
-  text-align: right;
+select:hover {
+  box-shadow: var(--box-inset-shadow);
+  color: #1A73E8;
+}
+
+button {
+  margin-right: 10px;
+  font-size: 25px;
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  color: var(--header);
+  cursor: pointer;
+  float: right;
+  border-radius: 10px;
+  background-color: var(--background);
+  box-shadow: var(--box-shadow);
+}
+
+button:hover {
+  color: var(--hover-txt-color);
+  box-shadow: var(--box-inset-shadow);
 }
